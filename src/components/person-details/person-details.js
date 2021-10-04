@@ -8,7 +8,7 @@ export default class PersonDetails extends Component {
       <div className='person-details card'>
         <img className='person-img' src='https://starwars-visualguide.com/assets/img/characters/3.jpg' alt='character' />
         <div className='card-body'>
-          <h3 className='person-name'>Planet Name</h3>
+          <h3 className='person-name'>Person Name</h3>
           <ul className='person-info-list'>
             <li className='person-info-item'>1</li>
             <li className='person-info-item'>2</li>
