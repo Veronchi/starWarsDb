@@ -3,7 +3,8 @@
   align-items: center;
   height: 200px;
   padding-left: 20px;
-  border-radius: 10px;
+  border-radius: 5px;
+  margin-bottom: 40px;
 }
 
 .random-planet .planet-image {
@@ -27,5 +28,5 @@
 
 .planet-info-item {
   line-height: 30px;
-  border-top: 1px solid gray;
+  border-top: 1px solid #444;
 }

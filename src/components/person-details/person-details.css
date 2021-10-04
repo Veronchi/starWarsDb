@@ -1,0 +1,28 @@
+.person-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-left: 20px;
+}
+
+.person-img {
+  width: 130px;
+  height: 170px;
+}
+
+.person-name {
+  margin: 0;
+  padding: 0;
+  line-height: 60px;
+}
+
+.person-info-list {
+  padding: 0;
+  list-style: none;
+}
+
+.person-info-item {
+  border-top: 1px solid #444;
+  line-height: 30px;
+}
