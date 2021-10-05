@@ -9,6 +9,7 @@
 .person-img {
   width: 130px;
   height: 170px;
+  border-radius: 10px;
 }
 
 .person-name {
