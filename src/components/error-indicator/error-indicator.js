@@ -6,8 +6,8 @@ function ErrorIndicator() {
   return (
     <div className='error-indicator'>
       <span className='boom'>BOOM!</span>
-      <span></span>
-      <span></span>
+      <span>somthing has gone terrible wrong</span>
+      <span>(but we already sent droids to fix it)</span>
     </div>
   );
 }

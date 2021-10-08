@@ -1,0 +1,14 @@
+.error-indicator {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.boom {
+  display: block;
+  font-size: large;
+}
+
+.error-indicator span {
+  display: block;
+  color: #f39c12;
+}
