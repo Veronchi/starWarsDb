@@ -10,7 +10,8 @@ import ToggleBtn from "../toggle-btn/toggle-btn";
 
 export default class App extends Component {
   state = {
-    randomPlanetVisibility: true
+    randomPlanetVisibility: true,
+    selectedPerson: null
   };
 
   onToggle = () => {
@@ -20,7 +21,12 @@ export default class App extends Component {
       return { randomPlanetVisibility: newStateValue }
     });
   };
-
+  
+  onPersonSelected = (id) => {
+    this.setState({
+      selectedPerson: id
+    });
+  };
 
   render() {
     const {randomPlanetVisibility} = this.state;
@@ -33,10 +39,10 @@ export default class App extends Component {
         <ToggleBtn onToggle={this.onToggle} />
         <div className='row mb2'>
           <div className='col-md-6'>
-            <ItemList />
+            <ItemList onItemSelected={this.onPersonSelected}/>
           </div>
           <div className='col-md-6'>
-            <PersonDetails />
+            <PersonDetails personId={this.state.selectedPerson}/>
           </div>
         </div>
       </div>
