@@ -1,5 +1,6 @@
 .list-group-item {
   cursor: pointer;
+  padding-left: 10px;
 }
 
 .list-group-item:hover {

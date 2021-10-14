@@ -4,11 +4,12 @@ export default class SwapiService {
   
     async getResource(url) {
       const res = await fetch(`${this._apiBase}${url}`);
-  
+      
       if (!res.ok) {
         throw new Error(`Could not fetch ${url}, recived ${res.status}`)
       
       }
+      
       return await res.json();
     }
   
@@ -48,7 +49,7 @@ export default class SwapiService {
     }
   
     _extarctId(item) {
-      const idRegExp = /\/([0-9])*\/$/;
+      const idRegExp = /\/([0-9]*)\/$/;
 
       return item.url.match(idRegExp)[1];
     }
