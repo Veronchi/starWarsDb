@@ -80,7 +80,7 @@ const PersonView = ({ person }) => {
     <React.Fragment>
       <img className='person-img' src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`} alt='character' />
       <div className='card-body'>
-        <h3 className='person-name'>{name} {id}</h3>
+        <h3 className='person-name'>{name}</h3>
         <ul className='person-info-list'>
           <li className='person-info-item'>
             <span>Gender</span>
