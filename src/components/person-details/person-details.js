@@ -83,15 +83,15 @@ const PersonView = ({ person }) => {
         <h3 className='person-name'>{name}</h3>
         <ul className='person-info-list'>
           <li className='person-info-item'>
-            <span>Gender</span>
+            <span>Gender: </span>
             <span>{gender}</span>
           </li>
           <li className='person-info-item'>
-            <span>Birth Year</span>
+            <span>Birth Year: </span>
             <span>{birthYear}</span>
           </li>
           <li className='person-info-item'>
-            <span>Eye Color</span>
+            <span>Eye Color: </span>
             <span>{eyeColor}</span>
           </li>
         </ul>
