@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import './people-page.css';
 import ItemList from "../item-list/item-list";
-import PersonDetails from "../person-details";
+import ItemDetails from "../item-details";
 import ErrorIndicator from "../error-indicator/error-indicator";
 import SwapiService from "../../services/swapi-service";
 import RowContainer from "../row-container/row-container";
@@ -13,7 +13,7 @@ export default class PeoplePage extends Component {
   swapiService = new SwapiService();
 
   state = {
-    selectedPerson: null    
+    selectedItem: null    
   }
 
   onPersonSelected = (id) => {
@@ -39,13 +39,13 @@ export default class PeoplePage extends Component {
       </ItemList>
     );
 
-    const personDetails = (
-      <PersonDetails personId={this.state.selectedPerson} />
+    const itemDetails = (
+      <ItemDetails itemId={this.state.selectedItem} />
     );
 
     return (
       <ErrorBoundary>
-        <RowContainer left={itemList} right={personDetails} />
+        <RowContainer left={itemList} right={itemDetails} />
       </ErrorBoundary>
     );
   };
