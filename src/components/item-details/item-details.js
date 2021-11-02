@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 
-import SwapiService from "../../services/swapi-service";
 import ErrorIndicator from "../error-indicator/error-indicator";
 import Spinner from "../spinner/spinner";
 import './item-details.css'
+
+const Record = ({ item, field, label }) => {
+
+  return (
+    <li className='item-info-item'>
+      <span>{label}: </span>
+      <span>{item[field]}</span>
+    </li>
+  )
+}
+
+export { Record };
 
 export default class ItemDetails extends Component {
 
@@ -32,7 +43,7 @@ export default class ItemDetails extends Component {
   };
 
   updateItem() {
-    const { itemId, getData, getImgUrl} = this.props;
+    const { itemId, getData, getImgUrl } = this.props;
 
     if (!itemId) {
       return;
@@ -40,7 +51,6 @@ export default class ItemDetails extends Component {
 
     getData(itemId)
       .then((item) => {
-        console.log(item)
         this.setState({
           item,
           img: getImgUrl(item),
@@ -57,10 +67,10 @@ export default class ItemDetails extends Component {
     }
 
     const { item, img, error, loading } = this.state;
-
+    const children = this.props.children;
 
     const hasDate = !(loading || error);
-    const content = hasDate ? <ItemView item={item} img={img} /> : null;
+    const content = hasDate ? <ItemView item={item} img={img} children={children} /> : null;
     const spinner = loading ? <Spinner /> : null;
     const errorMessage = error ? <ErrorIndicator /> : null;
 
@@ -74,7 +84,7 @@ export default class ItemDetails extends Component {
   };
 }
 
-const ItemView = ({ item, img }) => {
+const ItemView = ({ item, img, children }) => {
   const { id, name, gender, birthYear, eyeColor } = item;
 
   return (
@@ -83,18 +93,11 @@ const ItemView = ({ item, img }) => {
       <div className='card-body'>
         <h3 className='item-name'>{name}</h3>
         <ul className='item-info-list'>
-          <li className='item-info-item'>
-            <span>Gender: </span>
-            <span>{gender}</span>
-          </li>
-          <li className='item-info-item'>
-            <span>Birth Year: </span>
-            <span>{birthYear}</span>
-          </li>
-          <li className='item-info-item'>
-            <span>Eye Color: </span>
-            <span>{eyeColor}</span>
-          </li>
+          {
+            React.Children.map(children, (child) => {
+              return React.cloneElement(child, { item });
+            })
+          }
         </ul>
       </div>
     </React.Fragment>
